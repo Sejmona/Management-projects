@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'ukoly/css/styl.css' %}"
+    />
+
+    <title>Smazat úkol</title>
+  </head>
+  <body>
+    <h2>Opravdu chcete smazat úkol "{{ ukol.nazev }}"?</h2>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit">Ano, smazat</button>
+    </form>
+    <a href="{% url 'seznam_ukolu' %}">Zpět na seznam úkolů</a>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seznam úkolů</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'ukoly/css/styl.css' %}"
+    />
+  </head>
+  <body>
+    <h1>Seznam vašich úkolů</h1>
+    <ul>
+      {% for ukol in ukoly %}
+      <li>
+        {{ ukol.nazev }} -
+        <a href="{% url 'edit_ukol' ukol.pk %}">Editovat</a> |
+        <a href="{% url 'smazat_ukol' ukol.pk %}">Smazat</a>
+      </li>
+      {% empty %}
+      <li>Nemáte žádné úkoly.</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'pridat_ukol' %}">Přidat nový úkol</a>
+  </body>
+</html>

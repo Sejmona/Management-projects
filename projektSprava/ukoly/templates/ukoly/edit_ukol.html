@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editovat úkol</title>
+    <link rel="stylesheet" href="{% static 'ukoly/css/styles.css' %}" />
+  </head>
+  <body>
+    <h2>Editovat úkol</h2>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Uložit změny</button>
+    </form>
+    <a href="{% url 'seznam_ukolu' %}">Zpět na seznam úkolů</a>
+  </body>
+</html>
